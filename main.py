@@ -111,7 +111,6 @@ def on_canvas_click(event):
 
     x, y = event.x // cell_size, event.y // cell_size
 
-    # Проверяем, чтобы клик был в пределах лабиринта
     if x >= maze_width or y >= maze_height:
         return
 
@@ -125,7 +124,7 @@ def on_canvas_click(event):
                                 fill="red")
         path = a_star(maze, start, end)
         if path:
-            animate_path(path, 10, 10)  # Adjust delay_ms and step_duration_ms as needed for animation speed
+            animate_path(path, 10, 10)
 
 
 def generate_maze(width, height):
@@ -158,7 +157,7 @@ def generate_new_maze():
     draw_maze()
 
 def draw_maze():
-    canvas.delete("all")  # Очистка холста
+    canvas.delete("all")
     for y in range(len(maze)):
         for x in range(len(maze[y])):
             color = "black" if maze[y][x] == 1 else "white"
